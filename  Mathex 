@@ -1,0 +1,49 @@
+import textwrap
+from colorama import init, Fore
+init() 
+
+def ajustes(texto, ancho=118):
+    return textwrap.fill(texto, width=ancho)
+
+print(ajustes("Hola, bienvenido a Mathex, la IA experta en mates creada por Hammett23.", ancho=118))
+print(ajustes("Soy una IA capaz de sumar y restar, pero tú me tienes que decir los datos necesarios para calcularla."))
+
+while True:
+    a = input(ajustes("¿Qué quieres hacer? Calcular " + Fore.CYAN + "a) sumas " + Fore.RESET + "o " + Fore.CYAN + "b) restas" + Fore.RESET +": ", ancho=118)).lower()
+    
+    if a == "sumas" or a == "a":
+        print(ajustes("Perfecto, ahora tienes que ingresar un número en donde pone 'Ingresa 1er número' y después darle al enter. Luego te pondrá 'Ingresa 2do número' y haz lo mismo. Tras esto, yo sumaré los números ingresados y te saldrá 'La respuesta es: respuesta123' y ya lo tienes calculado.", ancho=118))
+        primero = input("Ingresa 1er número: ")
+        segundo = input("Ingresa 2do número: ")
+        suma = float(primero) + float(segundo)
+        print("La respuesta es: ", suma)
+    
+    elif a == "restas" or a == "b":
+        print(ajustes("Perfecto, ahora tienes que ingresar un número en donde pone 'Ingresa 1er número' y después darle al enter. Luego te pondrá 'Ingresa 2do número' y haz lo mismo. Tras esto, yo restaré los números ingresados y te saldrá 'La respuesta es: respuesta123' y ya lo tienes calculado.", ancho=118))
+        primero = input("Ingresa 1er número: ")
+        segundo = input("Ingresa 2do número: ")
+        resta = float(primero) - float(segundo)
+        print("La respuesta es: ", resta)
+    
+    else:
+        print(ajustes("Lo siento, no identifico '" + a + "' como una respuesta válida. Si quieres calcular sumas tienes que poner 'sumas' o 'a', y si quieres calcular restas tienes que poner 'restas' o 'b'.", ancho=118))
+        continue
+
+    while True:
+        b = input(ajustes("¿Qué quieres hacer ahora?: " + Fore.CYAN + "a) otra operación " + Fore.RESET + "o " + Fore.CYAN + "b) finalizar conversación" + Fore.RESET + ": ", ancho=118)).lower()
+        
+        if b == "otra operación" or b == "a":
+            break
+        
+        elif b == "finalizar conversación" or b == "b":
+            print(ajustes("Gracias por usar Mathex, ojalá que podamos volver a hablar. ",ancho=118))
+            print (ajustes(Fore.GREEN + "Hammett23 © 2025. Este programa está protegido por derechos de autor.", ancho=118))
+            print(ajustes(Fore.GREEN +"Prohibida su modificación, reproducción o distribución sin autorización del autor.", ancho=118))
+            exit_main = True
+            break
+        
+        else:
+            print(ajustes("Lo siento, no identifico '" + b + "' como una respuesta válida. Si quieres hacer otra operación tienes que poner 'otra operación' o 'a'. Si quieres finalizar la conversación tienes que poner 'finalizar conversación' o 'b'.", ancho=118))
+
+    if 'exit_main' in locals() and exit_main:
+        break
